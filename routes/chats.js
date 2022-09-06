@@ -10,10 +10,10 @@ app.use(cors());
 app.use(bodyparser.json());
 const db = require('./database');
 
-///get all users
-router.get('/get_user/:id', (req, res) => {
+///get all users except the logged in users
+router.get('/get_users', (req, res) => {
     let userId=req.params.id;
-    let sql = `SELECT alumni_id,alumni_name FROM alumni WHERE id = '${userId}'`;
+    let sql = `SELECT alumni_id,alumni_name FROM alumni WHERE alumni_id != '${req.session.Alumni.alumni_id}'`;
     db.query(sql, (err, result) => {
         if (err) throw err;
         else {
