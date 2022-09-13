@@ -9,6 +9,7 @@ const mysqlSession = require('express-mysql-session')(session);
 // files
 const login=require('./routes/login');
 const chats = require('./routes/chats');
+const vacancies = require('./routes/view_vacancies');
 const cookieParser = require('cookie-parser');
 const MySQLStore = require('express-mysql-session');
 
