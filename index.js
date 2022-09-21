@@ -10,6 +10,8 @@ const mysqlSession = require('express-mysql-session')(session);
 const login=require('./routes/login');
 const chats = require('./routes/chats');
 const vacancies = require('./routes/view_vacancies');
+const rsvp = require('./routes/count_rsvp');
+const send_rsvp = require('./routes/send_rsvp');
 const cookieParser = require('cookie-parser');
 const MySQLStore = require('express-mysql-session');
 
@@ -38,6 +40,9 @@ app.use(session({
 
 app.use('/',login);
 app.use('/send_message',chats);
+app.use('/vacancies',vacancies);
+app.use('/count_reservation',rsvp);
+app.use('/send_rsvps',send_rsvp);
 
 app.get('/logout',(req, res)=>{
     req.session.destroy(function(err){
