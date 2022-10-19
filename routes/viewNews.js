@@ -16,7 +16,7 @@ router.get('/',(req, res)=>{
 
 //retrieve the student if the student exists
 try{
-var sql = 'select * from NewsFeed where news_faculty="'+req.session.Alumni.faculty+'" OR lower(faculty)="all" order by dateStamp';
+var sql = 'select * from newsfeed where news_faculty="'+req.session.Alumni.faculty+'" OR lower(faculty)="all" order by dateStamp';
 database.getConnection((err, connection)=>{
   if(err) throw err
 connection.query(sql,(err, result)=>{
