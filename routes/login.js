@@ -19,7 +19,7 @@ router.post('/',(req, res)=>{
     let password=req.body.password;
 
 //retrieve the student if the student exists
-var sql = 'select * from Alumni where alumni_email ="'+email+'" and alumni_password="'+password+'" limit 1';
+var sql = 'select * from alumni where alumni_email ="'+email+'" and alumni_password="'+password+'" limit 1';
 database.getConnection((err, connection)=>{
     if(err) throw err
 connection.query(sql,(err, result)=>{
