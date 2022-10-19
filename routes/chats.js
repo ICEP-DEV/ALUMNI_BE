@@ -15,7 +15,7 @@ const database = require('../Database/database.js');
 router.get('/get_users', (req, res) => {
     try{
     let userId=req.params.id;
-    let sql = `SELECT alumni_id,alumni_name FROM Alumni WHERE alumni_id != '${req.session.Alumni.alumni_id}'`;
+    let sql = `SELECT alumni_id,alumni_name FROM alumni WHERE alumni_id != '${req.session.Alumni.alumni_id}'`;
     database.getConnection((err, connection)=>{
         if(err) throw err
     connection.query(sql,(err, result)=>{
@@ -39,7 +39,7 @@ router.post('/send_messages/:receiverId/', (req, res) => {
     let senderId =req.session.Alumni.alumni_id;
     let message = req.body.message;
     if (message != null && senderId != receiverId) {
-        let sql = `INSERT INTO ChatBox(sender_id,receiver_id,message)
+        let sql = `INSERT INTO chatbox(sender_id,receiver_id,message)
              VALUES('${senderId}','${receiverId}','${message}')`;
         //run the query
 
@@ -67,7 +67,7 @@ router.post('/send_messages/:receiverId/', (req, res) => {
 router.get('/get_message/:id', (req, res) => {
     try{
     receiverId = req.params.id;
-    let sql = `SELECT * FROM ChatBox  WHERE senderId='${req.session.Alumni.alumni_id}' AND receiverId='${receiverId}' 
+    let sql = `SELECT * FROM chatbox  WHERE senderId='${req.session.Alumni.alumni_id}' AND receiverId='${receiverId}' 
               OR  senderId='${receiverId}' AND receiverId='${req.session.Alumni.alumni_id}'`;
     //run query
     database.getConnection((err, connection)=>{
