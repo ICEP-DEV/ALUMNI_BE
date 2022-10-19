@@ -2,7 +2,7 @@ const express = require('express')
 const mysql = require('mysql')
 const getRegisterAPI = express.Router();
 
-const pool = require('../database/database.js');
+const pool = require('../Database/database.js');
 
 getRegisterAPI.post('/', (req, res) => {
 
