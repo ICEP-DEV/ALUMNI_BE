@@ -12,7 +12,7 @@ app.use(bodyparser.json());
 const database=require('../Database/database.js');
 
 router.get('/',(req, res)=>{
-    var sql = 'select * from Vacancies'; 
+    var sql = 'select * from vacancies'; 
     
     database.getConnection((err, connection)=>{
         if(err) throw err
