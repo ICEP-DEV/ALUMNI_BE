@@ -9,7 +9,7 @@ const login=require('./login');
 
 app.use(cors());
 app.use(bodyparser.json());
-const database = require('../database/database.js');
+const database = require('../Database/database.js');
 
 ///get all users except the logged in users
 router.get('/get_users', (req, res) => {
