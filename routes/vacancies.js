@@ -9,7 +9,7 @@ const app=express();
 app.use(cors());
 app.use(bodyparser.json());
 
-const database=require('../database/database.js');
+const database=require('../Database/database.js');
 
 router.get('/',(req, res)=>{
     var sql = 'select * from Vacancies'; 
