@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 app.use(cors());
 app.use(bodyparser.json());
 
-const database=require('../database/database');
+const database=require('../database/database.js');
 
 
 router.post('/',(req, res)=>{
