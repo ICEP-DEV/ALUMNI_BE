@@ -9,7 +9,7 @@ const session = require('express-session');
 app.use(cors());
 app.use(bodyparser.json());
 
-const database=require('../database/database.js');
+const database=require('../Database/database.js');
 const cookieParser = require('cookie-parser');
 
 router.get('/',(req, res)=>{
