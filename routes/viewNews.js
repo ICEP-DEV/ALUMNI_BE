@@ -42,7 +42,7 @@ connection.query(sql,(err, result)=>{
 });
 }catch(err){
 
-var sql = 'select * from news ';
+var sql = 'select * from newsfeed ';
 
 database.getConnection((err, connection)=>{
   if(err) throw err
