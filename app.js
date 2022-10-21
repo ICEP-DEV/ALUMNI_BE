@@ -15,9 +15,11 @@ const chat = require('./routes/chats');
 
 const app = express()
 //instantiating 
-app.use(boddParser.urlencoded({extended:false}))
+app.use(boddParser.urlencoded({extended:true}))
 app.use(boddParser.json())
-app.use(cors({origin: "*"}));
+app.use(cors({"Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",}));
 app.use(express.json());
 app.use|(cookieParser());
 
