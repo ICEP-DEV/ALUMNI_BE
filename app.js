@@ -17,7 +17,7 @@ const app = express()
 //instantiating 
 app.use(boddParser.urlencoded({extended:false}))
 app.use(boddParser.json())
-app.use(cors({"Access-Control-Allow-Origin": "*"}));
+app.use(cors({origin: "*"}));
 app.use(express.json());
 app.use|(cookieParser());
 
