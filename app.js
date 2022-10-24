@@ -19,9 +19,9 @@ app.use(boddParser.urlencoded({extended:true}))
 app.use(boddParser.json())
 app.use(cors({"Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "*",
-        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'",}));
+        "Access-Control-Allow-Headers": "'Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token'"}));
 app.use(express.json());
-app.use|(cookieParser());
+app.use(cookieParser());
 
 
 const oneDay = 1000*60*60*24;
