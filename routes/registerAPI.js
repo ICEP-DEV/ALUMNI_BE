@@ -13,7 +13,7 @@ getRegisterAPI.post('/', (req, res) => {
         connection.query('INSERT INTO alumni SET ?', params, (err, rows) => {
         connection.release() // return the connection to pool
         if (!err) {
-            res.send(`Successfully  Registerd`)
+            res.send({message:'Successfully  Registered'})
         } else {
             console.log(err)
         }
