@@ -11,48 +11,26 @@ app.use(bodyparser.json());
 
 const database=require('../Database/database.js');
 
-router.get('/',(req, res)=>{
-    var sql = 'select * from vacancies'; 
-    
-    database.getConnection((err, connection)=>{
-        if(err) throw err
-    connection.query(sql,(err, result)=>{
-        connection.release();
-        if(err)
-          return res.status(200).send("Failed to load data from the database!"+err);
-          else{
-            //if the alumni with the following credentials does not exist throw an error
-             if(Object.entries(result).length===0){
-
-                return res.status(200).send("There are no vacancies post yet!");
-                
-            }else{
-                console.log(result);
-                return res.status(200).send(result);
-            }
-        }
-    });
-    });
+///get vacancies based on faculty
+router.get('/:faculty', (req, res) => {
+    let faculty = req.params.faculty;
+    if(faculty=="All"){
+            let sql = `SELECT vac_title,vac_location,vac_position FROM vacancies `;
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+            else {
+                res.status(201).send(result);
+            };
+        });
+    }else{
+        let sql = `SELECT vac_title,vac_location,vac_position FROM vacancies WHERE vac_faculty = '${faculty}'`;
+        db.query(sql, (err, result) => {
+            if (err) throw err;
+            else {
+                res.status(201).send(result);
+            };
+        });
+   }
 });
-router.post('/',(req, res)=>{
-
-    //instatiating user variables
-    let faculty =req.body.vac_faculty;
- 
-//retrieve the student if the student exists
-var sql = 'select * from vacancies where lower(vac_faculty) ="'+faculty+'" ';
-database.query(sql,(err, result, fields)=>{
-   
-    if(err)
-          return res.status(200).send("Failed to load data!"+err);
-          else{
-                    return res.status(200).send(result);
-
-
-          }
-});
-
-});
-
 
 module.exports = router;
