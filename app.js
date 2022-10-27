@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const  port = process.env.PORT || 3100;
 
 // files
+const events=require('./routes/events');
+const admin_login=require('./routes/admin_login');
 const login=require('./routes/login');
 const  getRegisterAPI = require('./routes/registerAPI');
 const viewNews = require('./routes/viewNews');
@@ -45,6 +47,8 @@ app.use('/api/v1/viewNews',viewNews);
 app.use('/api/v1/viewVacancies',viewVacancies);
 app.use('/api/v1/viewProfile',profile);
 app.use('/api/v1/send_message',chat);
+app.use('/api/v1/',admin_login)
+app.use('/api/v1/event',events)
 
 //listener
 app.listen(port,()=>{
