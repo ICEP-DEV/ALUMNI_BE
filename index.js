@@ -7,6 +7,8 @@ const session = require('express-session');
 const mysqlSession = require('express-mysql-session')(session);
 
 // files
+const events=require('./routes/events');
+const admin_login=require('./routes/admin_login');
 const login=require('./routes/login');
 const chats = require('./routes/chats');
 const vacancies = require('./routes/view_vacancies');
@@ -43,6 +45,8 @@ app.use('/send_message',chats);
 app.use('/vacancies',vacancies);
 app.use('/count_reservation',rsvp);
 app.use('/send_rsvps',send_rsvp);
+app.use('/',admin_login);
+app.use('/event',events);
 
 app.get('/logout',(req, res)=>{
     req.session.destroy(function(err){
