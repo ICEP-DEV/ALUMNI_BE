@@ -64,5 +64,5 @@ connection.query(sql,(err, result)=>{
 
 
 module.exports = router;
-module.exports = router=accessToken;
+
 
