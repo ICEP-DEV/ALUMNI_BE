@@ -9,6 +9,7 @@ const  port = process.env.PORT || 3100;
 const events=require('./routes/events');
 const admin_login=require('./routes/admin_login');
 const login=require('./routes/login');
+const accessToken=require('./routes/login/accessToken')
 const  getRegisterAPI = require('./routes/registerAPI');
 const viewNews = require('./routes/viewNews');
 const viewVacancies = require('./routes/vacancies');
@@ -42,7 +43,7 @@ app.use(session({
 
 //APP.USE Routes declaration middleware
 app.use('/api/v1/register',getRegisterAPI);
-app.use('/api/v1/login',login);
+app.use('/api/v1/login',login,accessToken);
 app.use('/api/v1/viewNews',viewNews);
 app.use('/api/v1/viewVacancies',viewVacancies);
 app.use('/api/v1/viewProfile',profile);
