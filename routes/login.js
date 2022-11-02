@@ -51,7 +51,7 @@ connection.query(sql,(err, result)=>{
 
                     console.log(req.session);
                     //code to display on postman
-                    return res.status(200).json({ token:accessToken });
+                    return res.status(200).json(accessToken);
            
                 }); 
             }
