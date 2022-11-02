@@ -56,7 +56,7 @@ router.post('/send_messages/:receiverId/', (req, res) => {
         });
     });
     } else{
-        res.status(405).send("Something is missing :";
+        res.status(405).send("Something is missing :");
     }
 }catch(err){
     res.status(402).send("Something went wrong :"+ err);
