@@ -47,7 +47,7 @@ router.post('/send_messages/:receiverId/', (req, res) => {
             if(err) throw err
         connection.query(sql,(err)=>{
             connection.release();
-            if (err) return res.status(401).send(+err);
+            if (err) return res.status(401).send(err);
             else {
                return res.send('messages sent');
 
@@ -56,7 +56,7 @@ router.post('/send_messages/:receiverId/', (req, res) => {
         });
     });
     } else{
-        res.status(405).send("Something is missing :"+ err);
+        res.status(405).send("Something is missing :";
     }
 }catch(err){
     res.status(402).send("Something went wrong :"+ err);
@@ -67,8 +67,8 @@ router.post('/send_messages/:receiverId/', (req, res) => {
 router.get('/get_message/:id', (req, res) => {
     try{
     receiverId = req.params.id;
-    let sql = `SELECT * FROM chatbox  WHERE senderId='${req.session.Alumni.alumni_id}' AND receiverId='${receiverId}' 
-              OR  senderId='${receiverId}' AND receiverId='${req.session.Alumni.alumni_id}'`;
+    let sql = `SELECT * FROM chatbox  WHERE sender_id='${req.session.Alumni.alumni_id}' AND receiver_id='${receiverId}' 
+              OR  sender_id='${receiverId}' AND receiver_id='${req.session.Alumni.alumni_id}'`;
     //run query
     database.getConnection((err, connection)=>{
         if(err) throw err
