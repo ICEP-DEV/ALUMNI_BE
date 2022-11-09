@@ -37,8 +37,10 @@ connection.query(sql,(err, result)=>{
                 //if the alumni exists save the details to a session 
                 Object.keys(result).forEach(function(key){
                   var row = result[key];
-                  const user = { alumni_name:row.alumni_name }
+                  const user = { alumni_name:row.alumni_name, alumni_id:row.alumni_id ,
+                    alumni_email: row.alumni_email,faculty: row.faculty}
                   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+                 
                     
                     req.session.Alumni = {
                         "alumni_email": row.alumni_email,
@@ -51,7 +53,7 @@ connection.query(sql,(err, result)=>{
 
                     console.log(req.session);
                     //code to display on postman
-                    return res.status(200).json(req.session.Alumni);
+                    return res.status(200).json({token:accessToken});
            
                 }); 
             }
