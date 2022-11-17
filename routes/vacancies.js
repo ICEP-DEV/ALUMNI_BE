@@ -16,7 +16,7 @@ router.get('/:faculty', (req, res) => {
     let faculty = req.params.faculty;
     if(faculty=="All"){
             let sql = `SELECT vac_title,vac_location,vac_position FROM vacancies `;
-        db.query(sql, (err, result) => {
+         database.query(sql, (err, result) => {
             if (err) throw err;
             else {
                 res.status(201).send(result);
@@ -24,7 +24,7 @@ router.get('/:faculty', (req, res) => {
         });
     }else{
         let sql = `SELECT vac_title,vac_location,vac_position FROM vacancies WHERE vac_faculty = '${faculty}'`;
-        db.query(sql, (err, result) => {
+        database.query(sql, (err, result) => {
             if (err) throw err;
             else {
                 res.status(201).send(result);
