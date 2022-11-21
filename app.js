@@ -14,6 +14,7 @@ const  getRegisterAPI = require('./routes/registerAPI');
 const viewNews = require('./routes/viewNews');
 const viewVacancies = require('./routes/vacancies');
 const profile = require('./routes/profile');
+const passUpdate=require('./routes/updatePassword');
 const chat = require('./routes/chats');
 
 const app = express()
@@ -50,6 +51,7 @@ app.use('/api/v1/viewProfile',profile);
 app.use('/api/v1/send_message',chat);
 app.use('/api/v1/',admin_login)
 app.use('/api/v1/event',events)
+app.use('/api/v1/updatePassword',passUpdate);
 
 //listener
 app.listen(port,()=>{
