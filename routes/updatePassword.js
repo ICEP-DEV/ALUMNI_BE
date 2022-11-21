@@ -9,7 +9,7 @@ const jwtMiddleware=require('./jwtMiddleware')
 app.use(cors());
 app.use(bodyparser.json());
 
-const database=require('../database/database');
+const database=require('../Database/database');
 
 /*router.get('/',(req,res)=>{
     console.log(req.body.session);
