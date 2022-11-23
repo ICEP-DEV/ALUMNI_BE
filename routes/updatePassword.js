@@ -31,7 +31,7 @@ router.put('/',jwtMiddleware,(req, res)=>{
         console.log(password,entered_password)
         if(password === entered_password){
         //retrieve the student if the student exists
-        let sql = "UPDATE ALUMNI SET alumni_password = ? where alumni_id = ?";
+        let sql = "UPDATE alumni SET alumni_password = ? where alumni_id = ?";
         console.log(id);
         let data = [new_password,id];
 
