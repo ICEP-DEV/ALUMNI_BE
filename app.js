@@ -16,6 +16,10 @@ const viewVacancies = require('./routes/vacancies');
 const profile = require('./routes/profile');
 const passUpdate=require('./routes/updatePassword');
 const chat = require('./routes/chats');
+const uploadGallery=require('.routes/uploadImages');
+const createNews=require('.routes/createNews');
+const updateProfile=require('.routes/updateProfile');
+const viewGallery=require('.routes/viewGallery');
 
 const app = express()
 //instantiating 
@@ -52,6 +56,10 @@ app.use('/api/v1/send_message',chat);
 app.use('/api/v1/',admin_login)
 app.use('/api/v1/event',events)
 app.use('/api/v1/updatePassword',passUpdate);
+app.use('/api/v1/news',createNews);
+app.use('/api/v1/viewGallery',viewGallery);
+app.use('/api/v1/updateProfile',updateProfile);
+app.use('/api/v1/uploadImages,uploadGallery);
 
 //listener
 app.listen(port,()=>{
