@@ -21,7 +21,7 @@ const user = req.decoded;
     const name = user.alumni_name;
     const id = user.alumni_id
     if (name) {
-        res.send({ name: user.alumni_name, id:user.alumni_id,email:user.alumni_email,faculty:user.faculty})
+        res.send({ name: user.alumni_name, id:user.alumni_id,email:user.alumni_email,faculty:user.faculty,picture:user.profile_picture})
     } else {
         res.status(500)
     }
