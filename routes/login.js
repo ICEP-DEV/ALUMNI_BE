@@ -38,7 +38,7 @@ connection.query(sql,(err, result)=>{
                 Object.keys(result).forEach(function(key){
                   var row = result[key];
                   const user = { alumni_name:row.alumni_name, alumni_id:row.alumni_id ,
-                    alumni_email: row.alumni_email, alumni_password: row.alumni_password,faculty: row.faculty}
+                    alumni_email: row.alumni_email, alumni_password: row.alumni_password,faculty: row.faculty,profile_picture: row.profile_picture}
                   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
                  
                     
