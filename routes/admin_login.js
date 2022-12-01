@@ -5,7 +5,7 @@ const mysql=require('mysql2');
 const router = express.Router();
 const app=express();
 
-const { sign } = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 app.use(cors());
 app.use(bodyparser.json());
 
@@ -35,9 +35,9 @@ router.post('/admin',(req, res)=>{
                 //if the admin exists save the details to a session 
                 Object.keys(result).forEach(function(key){
                     var row = result[key];
-                    const jsontoken = sign({ result: result }, "thisismysecret_keysadhasdkjasdh.!5gdfhkdhshjkfhjkdhkjh",{
-                        expiresIn: "2h"
-                    });
+                    const user = { admin_name:row.admin_name,admin_id:row.admin_id ,
+                        admin_email: row.admin_email,admin_surname: row.admin_surname}
+                    const jsontoken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
                     req.session.Admin = {
                         "admin_email": row.admin_email,
                         "admin_id": row.admin_id,
@@ -47,7 +47,7 @@ router.post('/admin',(req, res)=>{
                     }
                     console.log(req.session.Admin.admin_id);
                     //code to display on postman
-                    return res.status(200).send("Log in was successful!\n"+JSON.stringify(jsontoken));
+                    return res.status(200).json({message:"Log in was successful!\n",token:jsontoken });
            
                 }); 
             }
