@@ -59,7 +59,7 @@ app.use('/api/v1/updatePassword',passUpdate);
 app.use('/api/v1/news',createNews);
 app.use('/api/v1/viewGallery',viewGallery);
 app.use('/api/v1/updateProfile',updateProfile);
-app.use('/api/v1/uploadImages,uploadGallery);
+app.use('/api/v1/uploadImages',uploadGallery);
 
 //listener
 app.listen(port,()=>{
