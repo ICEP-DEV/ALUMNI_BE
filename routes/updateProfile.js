@@ -34,7 +34,7 @@ const storage = new Storage({
   keyFileName,
 });
 const bucket = storage.bucket("tutalumni_bucket2");
-const database=require('../database/database');
+const database=require('../Database/database');
 
 
 router.put('/',jwtMiddleware,multer.single('image'),(req, res)=>{
