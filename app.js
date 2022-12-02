@@ -16,10 +16,10 @@ const viewVacancies = require('./routes/vacancies');
 const profile = require('./routes/profile');
 const passUpdate=require('./routes/updatePassword');
 const chat = require('./routes/chats');
-const uploadGallery=require('.routes/uploadImages');
-const createNews=require('.routes/createNews');
-const updateProfile=require('.routes/updateProfile');
-const viewGallery=require('.routes/viewGallery');
+const uploadGallery=require('./routes/uploadImages');
+const createNews=require('./routes/createNews');
+const updateProfile=require('./routes/updateProfile');
+const viewGallery=require('./routes/viewGallery');
 
 const app = express()
 //instantiating 
