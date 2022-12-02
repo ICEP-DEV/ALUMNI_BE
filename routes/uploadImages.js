@@ -32,7 +32,7 @@ const bucket = storage.bucket("tutalumni_bucket2");
 app.use(cors());
 app.use(bodyparser.json());
 
-const database = require('../database/database');
+const database = require('../Database/database');
 
 
 
